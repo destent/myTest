@@ -18,9 +18,9 @@
     fdca2887acb39f304dd9c1db006b086e4ddfeed2 git 学习记录
     ```
     `git log --pretty=oneline --abbrev-commit`
-> 长串十六进制数为commit id 即版本号
-  HEAD 指向当前版本（类似C语言指针） 上个版本写作HEAD^，上上个版本写作HEAD^^，
-  上N个版本HEAD~N
+    > 长串十六进制数为commit id 即版本号
+    HEAD 指向当前版本（类似C语言指针） 上个版本写作HEAD^，上上个版本写作HEAD^^，
+    上N个版本HEAD~N 
 - 切换版本 git reset -hard commit id(HEAD 指针)
 - 查看历史版本 git reflog
 ### 工作区和暂存区
@@ -61,7 +61,7 @@
 那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；
 你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
 所以，团队合作的分支看起来就像这样：
-![fenzhi](.\img\0.png)
+![fenzhi](.\image\0.png)
 合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并
 ### bug分支
 修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
@@ -97,3 +97,15 @@ rebase的目的是使得我们在查看历史提交的变化时更容易，因�
 - `git push origin --tags`可以推送全部未推送过的本地标签；
 - `git tag -d <tagname>`可以删除一个本地标签；
 - `git push origin :refs/tags/<tagname>`可以删除一个远程标签。
+## 自定义git
+### gitignore
+- 在工作区根目录下创建.gitignore文件，将要忽略的文件名填写进去git会自动忽略这些文件
+- 不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：https://github.com/github/gitignore
+- 忽略文件的原则：
+> 忽略操作系统自动生成的文件，比如缩略图等；
+忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；
+忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。
+### 配置别名
+1. 命令：`git config --golbal alias.别名 原名`
+> --golbal 针对当前用户 不加--golbal针对当前仓库
+2. 配置文件：每个仓库的Git配置文件都放在.git/config文件中
