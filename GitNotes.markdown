@@ -24,3 +24,8 @@ HEAD 指向当前版本（类似C语言指针） 上个版本写作HEAD^，上�
 ## 工作区和暂存区
 - 工作区：目录中可见可的部分
 - 暂存区：git add文件进入暂存区， git commint 将暂存区的所有文件提交到分支
+## 撤销修改
+- `git checkout -- file`:撤销工作区的修改，使其恢复到最近一次git add或git commit状态
+## 删除文件
+- `git rm file`：删除文件，已存入版本库的文件可通过`git checkout`恢复
+
