@@ -1,5 +1,6 @@
 # git学习
 ## 建立版本库
+- git init 将当前目录变为git可管理的仓库
 - 添加文件  git add 文件名
 - 提交到仓库 git commit -m "描述性文字"
 - 可以添加多个文件然后一次性提交
@@ -20,3 +21,6 @@ HEAD 指向当前版本（类似C语言指针） 上个版本写作HEAD^，上�
 上N个版本HEAD~N
 - 切换版本 git reset -hard commit id(HEAD 指针)
 - 查看历史命令 git reflog
+## 工作区和暂存区
+- 工作区：目录中可见可的部分
+- 暂存区：git add文件进入暂存区， git commint 将暂存区的所有文件提交到分支
