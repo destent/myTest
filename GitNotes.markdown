@@ -92,3 +92,8 @@ rebase的目的是使得我们在查看历史提交的变化时更容易，因�
 - `git tag <tagname>`用于新建一个标签，默认为HEAD，*也可以指定一个commit id*；
 - `git tag -a <tagname> -m "blablabla..."`可以指定标签信息；
 - `git tag`可以查看所有标签。
+### 操作标签
+- `git push origin <tagname>`可以推送一个本地标签；
+- `git push origin --tags`可以推送全部未推送过的本地标签；
+- `git tag -d <tagname>`可以删除一个本地标签；
+- `git push origin :refs/tags/<tagname>`可以删除一个远程标签。
