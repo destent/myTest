@@ -1,2 +1,0 @@
-这个文件用来练习git命令
-git checkout
